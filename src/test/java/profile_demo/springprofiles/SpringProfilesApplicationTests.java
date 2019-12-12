@@ -19,4 +19,9 @@ class SpringProfilesApplicationTests {
         System.out.println("This dummy test in release1912");
     }
 
+    @Test
+    void dummyTest4(){
+        System.out.println("This dummy test in release1912");
+    }
+
 }
