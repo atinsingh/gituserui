@@ -9,5 +9,10 @@ class SpringProfilesApplicationTests {
     @Test
     void contextLoads() {
     }
+    
+    @Test
+    void dummyTest(){
+        System.out.println("This dummy test in release1912");
+    }
 
 }
