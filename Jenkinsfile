@@ -1,32 +1,41 @@
 pipeline{
     agent any
-    tools {
-        jdk "JDK8"
+    tools{
         maven "m3"
     }
-    triggers {
+    triggers{
         pollSCM("* * * * *")
     }
-    stages {
+    stages{
         stage('Compile'){
             steps{
                 sh "mvn clean compile"
             }
         }
-        stage('build') {
-            steps {
+        stage('Build'){
+            steps{
                 sh "mvn test"
             }
         }
-        stage('Package') {
+        stage('Package'){
             steps{
                 sh "mvn package"
             }
         }
+        stage('Install'){
+            steps{
+                sh "mvn install"
+            }
+        }
+        stage('SonarQube'){
+            steps{
+                sh "mvn sonar:sonar"
+            }
+        }
     }
-    post {
-        success {
-            sh "echo HURRAY"
+    post{
+        success{
+            sh "echo PROJECT IS SUCCESSFUL"
         }
     }
 }
